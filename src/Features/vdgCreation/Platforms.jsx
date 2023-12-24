@@ -1,4 +1,4 @@
-import { StyledPlatforms } from "../Styles/Platforms"
+import { StyledPlatforms } from "../../Styles/Platforms"
 
 const Platforms = ({platforms}) => {
     return(

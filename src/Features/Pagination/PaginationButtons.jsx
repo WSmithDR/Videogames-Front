@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCurrentPage } from '../redux/actions/actions';
-import { StyledButton } from './../Styles/PaginationButtons';
+import { StyledButton } from '../../Styles/PaginationButtons';
+import { setCurrentPage } from '../../redux/actions/actions';
 
 const PaginationButtons = ({ pagination }) => {
   const { currentPage, totalPages, nextPage, prevPage, goToPage } = pagination;

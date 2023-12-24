@@ -1,4 +1,4 @@
-import ErrorList from "../Styles/errors"
+import ErrorList from "../../Styles/errors"
 
 export const Errors = ({name}) => {
     return (

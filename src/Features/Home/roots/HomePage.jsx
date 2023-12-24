@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Videogames from "../Components/Videogames";
-import usePagination from "../Hooks/usePagination";
-import { Reset, Selection, SelectionContainer } from "../Styles/Home";
+import useData from "../../../Hooks/useData";
+import usePagination from "../../../Hooks/usePagination";
+import { Reset, Selection, SelectionContainer } from "../../../Styles/Home";
 import {
   getVideogamesByDefault,
   renderVideogames
-} from "../redux/actions/actions";
-import PaginationButtons from "./../Components/PaginationButtons";
-import useData from "./../Hooks/useData";
+} from "../../../redux/actions/actions";
+import PaginationButtons from "../../Components/PaginationButtons";
+import Videogames from "../../Components/Videogames";
 
 const HomePage = () => {
   const dispatch = useDispatch();

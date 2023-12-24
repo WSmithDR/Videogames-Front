@@ -1,6 +1,6 @@
-import NavButton from "../Components/NavButton"
-import VdgDetail from "../Components/VdgDetail"
-import { Details } from "../Styles/DetailPage"
+import { Details } from "../../../Styles/DetailPage"
+import NavButton from "../../Navigation/NavButton"
+import VdgDetail from "../VdgDetail"
 
 const DetailPage = ()=>{
     return(
