@@ -7,7 +7,12 @@ function App() {
   return (
     <div className='App'>
       {(pathname !== "/" && !pathname.includes("/detail") && pathname!=="/form") && <NavBar/>}
-      
+      <Routes>
+        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/home" element={<HomePage/>}/>
+        <Route path="/detail/:id" element={<DetailPage/>}/>
+        <Route path="/form" element={<FormPage/>}/>
+      </Routes>
     </div>
   )
 }
