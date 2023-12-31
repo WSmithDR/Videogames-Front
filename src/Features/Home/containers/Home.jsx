@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useData from "../../../Hooks/useData";
 import usePagination from "../../../Hooks/usePagination";
-import { Reset, Selection, SelectionContainer } from "../../../Styles/Home";
+import { Reset, Selection } from "../../../Styles/Home";
 import {
   getVideogamesByDefault,
   renderVideogames
 } from "../../../redux/actions/actions";
 import PaginationButtons from "../../Components/PaginationButtons";
 import Videogames from "../../Components/Videogames";
+import VdgSelection from "../../vdgSelection/containers/VdgSelection";
 
-const HomePage = () => {
+const Home = () => {
   const dispatch = useDispatch();
   const videogames = useSelector((state) => state.renderedVideogames);
   const genres = useData("http://localhost:3001/genres");
@@ -48,7 +49,7 @@ const HomePage = () => {
 
   return (
     <>
-      {<SelectionContainer>
+      {<VdgSelection>
         <label>
             <b>Genres:</b>{" "}
         </label>
@@ -83,11 +84,11 @@ const HomePage = () => {
           </optgroup>
         </Selection>
         <Reset onClick={cleanOrderFilter}>Reset</Reset>
-      </SelectionContainer>}
+      </VdgSelection>}
       <Videogames videogames={currentVideogames} />
       <PaginationButtons pagination={pagination} />
     </>
   );
 };
 
-export default HomePage;
+export default Home;

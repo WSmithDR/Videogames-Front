@@ -1,6 +1,6 @@
-import { NavigationBar } from "../../../Styles/StyledNavbar";
-import { SearchVideogameByName } from "../../Searching/SearchVideogameByName";
-import NavButton from "../NavButton";
+
+import { SearchVideogameByName } from "../../../Searching/SearchVideogameByName";
+import NavButton from "../../components/NavButton/NavButton";
 
 const NavBar = () => {
     const buttons = [
@@ -9,10 +9,8 @@ const NavBar = () => {
     ]
     return (
         <div>
-            <NavigationBar>
                 {buttons.map(({name, to}, index) => <NavButton key={name+index} name={name} to={to}/>)}
                 <SearchVideogameByName/>
-            </NavigationBar>
         </div>
     )
 }

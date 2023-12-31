@@ -1,6 +1,8 @@
-import { useLocation } from 'react-router';
+import { Route, Routes, useLocation } from 'react-router';
 import './App.css';
-import NavBar from './Features/Navigation/components/Navbar';
+import HomeScreen from './Features/Home/roots/HomeScreen.jsx';
+import LandingScreen from './Features/Landing/roots/LandingScreen.jsx';
+import NavBar from './Features/Navigation/containers/NavBar/Navbar.jsx';
 
 function App() {
   const {pathname} = useLocation()
@@ -8,8 +10,8 @@ function App() {
     <div className='App'>
       {(pathname !== "/" && !pathname.includes("/detail") && pathname!=="/form") && <NavBar/>}
       <Routes>
-        <Route path="/" element={<LandingPage/>}/>
-        <Route path="/home" element={<HomePage/>}/>
+        <Route path="/" element={<LandingScreen/>}/>
+        <Route path="/home" element={<HomeScreen/>}/>
         <Route path="/detail/:id" element={<DetailPage/>}/>
         <Route path="/form" element={<FormPage/>}/>
       </Routes>
