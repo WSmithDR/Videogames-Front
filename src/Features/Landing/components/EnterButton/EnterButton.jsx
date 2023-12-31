@@ -2,7 +2,7 @@ import { StEnterButton } from "./Style"
 
 const EnterButton = () => {
     return(
-        <StEnterButton/>
+        <StEnterButton>Start!</StEnterButton>
     )
 }
 
