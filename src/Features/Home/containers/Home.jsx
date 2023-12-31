@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
 import usePagination from "../../../Hooks/usePagination";
-import PaginationButtons from "../../Components/PaginationButtons";
-import Videogames from "../../Components/Videogames";
 import VdgSelection from "../../vdgSelection/containers/VdgSelection";
 
 const Home = () => {
@@ -17,8 +15,6 @@ const Home = () => {
   return (
     <>
       <VdgSelection/>
-      <Videogames videogames={currentVideogames} />
-      <PaginationButtons pagination={pagination} />
     </>
   );
 };

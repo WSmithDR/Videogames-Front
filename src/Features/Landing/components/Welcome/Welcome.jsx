@@ -1,8 +1,8 @@
 import { StWelcome } from "./Style"
 
-const Welcome = ({content}) =>{
+const Welcome = () =>{
     return(
-            <StWelcome>{content}</StWelcome>
+            <StWelcome>Welcome to the World of Videogames</StWelcome>
     )
 } 
 
