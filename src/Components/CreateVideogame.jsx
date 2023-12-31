@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import useData from "../Hooks/useData";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import useValidation from "../Hooks/useValidation";
 import {
   Checkbox,
@@ -12,12 +11,17 @@ import {
   StarRating,
   StyledForm
 } from "../Styles/createVideogame";
-import { createVideogame } from "../redux/actions/actions";
+import { createVideogame, getGenres, getPlatforms } from "../redux/actions/actions";
 import { Errors } from "./Errors";
 
 const CreateVideogame = () => {
-  const genres = useData("http://localhost:3001/genres");
-  const platforms = useData("http://localhost:3001/platforms");
+  const dispatch = useDispatch()
+  const genres = useSelector(state => state?.genres)
+  const platforms = useSelector(state => state?.platforms)
+  useEffect(()=>{
+    dispatch(getGenres())
+    dispatch(getPlatforms())
+  },[])
   const [newVideogame, setNewVideogame] = useState({
     name: "",
     image: "",
@@ -118,8 +122,6 @@ const CreateVideogame = () => {
     }
     return stars;
   };
-
-  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();

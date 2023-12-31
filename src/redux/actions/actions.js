@@ -1,7 +1,8 @@
 import axios from "axios"
-import { CREATE_VIDEOGAME, GET_DEFAULT_VIDEOGAMES, RENDER_VIDEOGAMES, SEARCH_VIDEOGAME_BY_NAME, SET_CURRENT_PAGE, SET_ITEMS_PER_PAGE } from "./types"
+import { CREATE_VIDEOGAME, GET_DEFAULT_VIDEOGAMES, GET_GENRES, GET_PLATFORMS, RENDER_VIDEOGAMES, SEARCH_VIDEOGAME_BY_NAME, SET_CURRENT_PAGE, SET_ITEMS_PER_PAGE } from "./types"
 
-const vdgEndpoint = `http://localhost:3001/videogames`
+const endpoint = `http://localhost:3001`
+const vdgEndpoint = `${endpoint}/videogames`
 
 export const getVideogamesByDefault = () => {
     return async (dispatch) => {
@@ -73,4 +74,34 @@ export const searchVideogameByName = name => {
    } catch (error) {
         return error.message
    }
+}
+
+export const getGenres = () => {
+    try {
+         return async dispatch => {
+             const {data} = await axios(`${endpoint}/genres`)
+             const names = data.map((item) => item.name)
+             dispatch({
+                 type: GET_GENRES,
+                 payload: names
+             })
+         }
+    } catch (error) {
+         return error.message
+    }
+}
+
+export const getPlatforms = () => {
+    try {
+         return async dispatch => {
+             const {data} = await axios(`${endpoint}/platforms`)
+             const names = data.map((item) => item.name)
+             dispatch({
+                 type: GET_PLATFORMS,
+                 payload: names
+             })
+         }
+    } catch (error) {
+         return error.message
+    }
 }
